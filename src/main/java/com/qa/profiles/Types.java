@@ -1,4 +1,4 @@
-package com.qa.gameTypes;
+package com.qa.profiles;
 
 public interface Types {
 public void setGameName(String name);

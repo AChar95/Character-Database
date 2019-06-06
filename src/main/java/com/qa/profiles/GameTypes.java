@@ -1,4 +1,4 @@
-package com.qa.gameTypes;
+package com.qa.profiles;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

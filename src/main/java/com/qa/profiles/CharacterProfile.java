@@ -36,6 +36,7 @@ public class CharacterProfile implements Profiles {
 	public void setGameType(String gameType) {
 		this.gameType = gameType;
 	}
+
 	public String getGameType() {
 		return this.gameType;
 	}
@@ -43,9 +44,11 @@ public class CharacterProfile implements Profiles {
 	public void setClassName(String className) {
 		this.className = className;
 	}
+
 	public String getClassName() {
 		return this.className;
 	}
+
 	public int getId() {
 		return this.id;
 	}
