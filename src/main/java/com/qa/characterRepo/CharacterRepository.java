@@ -1,6 +1,8 @@
 package com.qa.characterRepo;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -13,7 +15,7 @@ import com.qa.profiles.CharacterProfile;
 @Transactional(value = TxType.SUPPORTS)
 public class CharacterRepository implements ProfileRepository {
 
-	@PersistenceContext(unitName = "myPu")
+	@PersistenceContext(unitName = "myPU")
 	private EntityManager em;
 
 	@Transactional(value = TxType.REQUIRED)
@@ -32,6 +34,11 @@ public class CharacterRepository implements ProfileRepository {
 				"Select char from CharacterProfile char where FIRSTNAME = '" + firstName + "'", CharacterProfile.class);
 		List<CharacterProfile> charList = tQ.getResultList();
 		return charList;
+	}
+
+	public List<CharacterProfile> getListFromStream(Stream<CharacterProfile> stream) {
+		List<CharacterProfile> list = stream.collect(Collectors.toList());
+		return list;
 	}
 
 	@Override
@@ -57,5 +64,4 @@ public class CharacterRepository implements ProfileRepository {
 		em.remove(readChar(id));
 
 	}
-
 }
