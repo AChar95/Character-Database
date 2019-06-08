@@ -19,5 +19,6 @@ li a{
     text-decoration: none;
 }
 li a:hover {
-    background-color: darkblue
+    background-color: darkblue;
+    color: white;
 }
