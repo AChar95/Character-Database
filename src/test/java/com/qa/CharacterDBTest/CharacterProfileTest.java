@@ -5,8 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.qa.gameTypes.GameTypes;
 import com.qa.profiles.CharacterProfile;
+import com.qa.profiles.GameTypes;
 
 public class CharacterProfileTest {
 	CharacterProfile character;
