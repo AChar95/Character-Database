@@ -18,9 +18,10 @@ li a:hover {
     background-color: rgb(65, 65, 68);
     color: white;
 }
-.intro {
-    color: black;
-    margin: 5px;
-    text-align: justify;
-
+input{
+    border
+}
+label {
+    display: inline-block;
+    width: 100px;
 }
