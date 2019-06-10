@@ -9,22 +9,8 @@ const setgameType = (gameText) => {gType=gameText.value};
 const setClassName = (classText) => {clasName=classText.value};
 
 
-class Profile {
-    constructor(firstName, surname, gameType, className) {
-        this.firstName = firstName;
-        this.surname = surname;
-        this.gameType = gameType;
-        this.className = className;
-    }
-}
-function clearTextboxes(){
-    console.log("clearing");
-    document.getElementById("firstname").value="";
-    document.getElementById("surname").value="";
-    document.getElementById("class").value="";
-    document.getElementById("gametype").value="";
-    console.log("cleared");
-}
+
+
 function addCharacter() {
     let newCharacter = JSON.stringify(new Profile(fName, sName, gType, clasName));
     fetchData(newCharacter,"POST", "/characters");
