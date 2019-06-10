@@ -2,16 +2,22 @@ let fName = "";
 let sName = "";
 let gType = "";
 let clasName = "";
+let id;
 
 const setFirstName = (nameText) => { fName = nameText.value };
 const setSurname = (sNameText) => { sName = sNameText.value };
 const setgameType = (gameText) => { gType = gameText.value };
 const setClassName = (classText) => { clasName = classText.value };
 
+let userData = sessionStorage.getItem("userdata");
+userData = JSON.parse(userData);
+id = userData["id"];
+document.getElementById("firstname").value = userData["firstName"];
+document.getElementById("surname").value = userData["surname"];
+document.getElementById("class").value = userData["className"];
+document.getElementById("gameType").value = userData["gameType"];
+
 function updateCharacter() {
-    let userData = sessionStorage.getItem("userdata");
-    userData = JSON.parse(userData);
-    document.getElementById("")
-    userData.firstName.value
-        console.log(userData);
+    let updatedCharacter = JSON.stringify(new Profile(fName, sName, gType, clasName));
+    fetchData(updatedCharacter, "PUT", "/characters" + id);
 }
