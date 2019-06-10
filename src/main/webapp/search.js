@@ -30,10 +30,14 @@ function updateCharacter() {
         if (fName != "") {
             let userRequest = JSON.stringify(new foundName(fName));
             // userRequest = fetchData(userRequest, "GET", "/character/" + fName);
-            // if (userRequest.size() > 1) 
+            // if (userRequest.length() > 1) {
+            // sessionStorage.setItem("userdata", userRequest);
+            // window.location.assign("update_list.html");
+            //} else { 
             console.log("updating name")
             sessionStorage.setItem("userdata", userRequest);
             window.location.assign("update.html")
+            //}
         }
     }
 }
