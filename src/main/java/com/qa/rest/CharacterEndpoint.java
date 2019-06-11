@@ -44,7 +44,7 @@ public class CharacterEndpoint {
 	public Response getOneChar(@PathParam("id") int id) {
 		CharacterProfile charId = profRepo.readChar(id);
 		if (profRepo.readChar(id).equals(null)) {
-			return Response.noContent().build();
+			return Response.status(Status.NOT_FOUND).build();
 		}
 		return Response.ok(charId).build();
 	}
