@@ -1,8 +1,6 @@
 package com.qa.characterRepo;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -31,17 +29,13 @@ public class CharacterRepository implements ProfileRepository {
 
 	public List<CharacterProfile> readName(String firstName) {
 		TypedQuery<CharacterProfile> tQ = em.createQuery(
-				"Select char from CharacterProfile char where FIRSTNAME = '" + firstName + "'", CharacterProfile.class);
+				"Select char from CharacterProfile char WHERE firstName='" + firstName + "'",
+				CharacterProfile.class);
+		System.out.println(tQ.toString());
 		List<CharacterProfile> charList = tQ.getResultList();
 		return charList;
 	}
 
-	public List<CharacterProfile> getListFromStream(Stream<CharacterProfile> stream) {
-		List<CharacterProfile> list = stream.collect(Collectors.toList());
-		return list;
-	}
-
-	@Override
 	public List<CharacterProfile> readAll() {
 		TypedQuery<CharacterProfile> tQ = em.createQuery("Select char from CharacterProfile char",
 				CharacterProfile.class);
