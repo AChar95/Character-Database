@@ -24,20 +24,23 @@ function updateCharacter() {
         let userRequest = JSON.stringify(new foundId(id));
         // userRequest = fetchData(userRequest, "GET", "/character/" + id);
         console.log("updating num")
-        sessionStorage.setItem(userdata, userRequest);
-        window.location.assign("update.html")
+        sessionStorage.setItem("userdata", userRequest);
+        sessionStorage.setItem("userRoute", "Single");
+        window.location.assign("update.html");
     } else {
         if (fName != "") {
             let userRequest = JSON.stringify(new foundName(fName));
-            // userRequest = fetchData(userRequest, "GET", "/character/" + fName);
-            // if (userRequest.length() > 1) {
-            // sessionStorage.setItem("userdata", userRequest);
-            // window.location.assign("update_list.html");
-            //} else { 
-            console.log("updating name")
+            userRequest = fetchData(userRequest, "GET", "/character/" + fName);
+             if (userRequest.length() > 1) {
+             sessionStorage.setItem("userdata", userRequest);
+             console.log("list");
+             window.location.assign("update_list.html");
+            } else { 
+            console.log("updating name");
             sessionStorage.setItem("userdata", userRequest);
-            window.location.assign("update.html")
-            //}
+            sessionStorage.setItem("userRoute", "Single")
+            window.location.assign("update.html");
+            }
         }
     }
 }
