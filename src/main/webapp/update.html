@@ -50,12 +50,33 @@
         <label>Game Type:</label><input type="text" class="input-boxes" id="gametype" oninput="setgameType(this)"
             placeholder="Lord of the Rings"></input>
         <br>
-        <button type="button" class="clear" onclick="clearTextboxes(1)">Clear</button>
+        <p id="errors"></p>
+        <button type="button" class="clear" data-toggle="modal" data-target="#deleteModal">Delete</button>
         <button type="button" class="show" onclick="showCharacter()">Show</button>
         <button class="submit" onclick="updateCharacter()">submit</button>
+        <p id="errors"></p>
+    </div>
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                What you are about to do is permenant, are you sure?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="deleteProfile()">Delete</button>
+            </div>
+        </div>
     </div>
 </body>
 <script src="class.js"></script>
+<script src="fetchData.js"></script>
 <script src="update.js"></script>
 <script src="utility.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

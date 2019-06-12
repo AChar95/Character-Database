@@ -2,14 +2,35 @@ let id;
 const setId = (number) => id = number.value;
 
 function showList() {
-    let userData = JSON.parse(sessionStorage.getItem("userdata", userRequest));
+    document.getElementById("table").innerHTML="";
+    let userData = JSON.parse(sessionStorage.getItem("userdata"));
+    console.log(userData);
     let tableOne = document.getElementById("table");
+    let header = tableOne.createTHead();
+    let rowOne = header.insertRow(0);
+    let headNum = 0;
+    for (let prop in userData[0]) {
+        let cell = rowOne.insertCell(headNum);
+        if (headNum === 0) {
+            cell.innerHTML= "id";
+        }else if (headNum === 1) {
+            cell.innerHTML = "First Name";
+        } else if (headNum === 2) {
+            cell.innerHTML = "Surname";
+        } else if (headNum === 3) {
+            cell.innerHTML = "Class Name";
+        } else if (headNum === 4) {
+            cell.innerHTML = "Game Type";
+        }
+        headNum = headNum + 1;
+    }
     let rowNumber = 1;
-    for (let i = 0; i < userData.length(); i++) {
+    for (let i = 0; i < userData.length; i++) {
         let rowBody = tableOne.insertRow(rowNumber);
+        let elementNumber = 0;
         for (data in userData[i]) {
             let profiles = userData[i];
-            let cell = rowBody.insertCell(elementNumber)
+            let cell = rowBody.insertCell(elementNumber);
             if (elementNumber === 0) {
                 cell.innerHTML = profiles["id"];
             } else if (elementNumber === 1) {
@@ -21,7 +42,7 @@ function showList() {
             } else if (elementNumber === 4) {
                 cell.innerHTML = profiles["gameType"];
             }
-            elementNumber++;
+            elementNumber = elementNumber + 1;
 
         }
         rowNumber++;
@@ -30,9 +51,12 @@ function showList() {
 
 }
 function findId() {
-    let findCharacter = fetchData("", "GET", "/characters/" + id);
-    sessionStorage.setItem("user_list", findCharacter);
-    sessionStorage.setItem("userRoute", "list");
-    window.location.assign("update.html");
+    let findCharacter = fetchData("", "GET", "/characters/" + id).then((value) =>{
+        let userFound = value;
+        sessionStorage.setItem("userdata", userFound);
+        sessionStorage.setItem("userRoute", "list");
+        window.location.assign("update.html")
+    });
+    ;
 
 }

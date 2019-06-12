@@ -34,21 +34,24 @@
 
 <body>
     <div>
+        <p id="warningId"></p>
         <label>Character id number*:</label><input type="number" class="input-boxes" id="idNumber" oninput="setId(this)"
             placeholder="15"></input>
+            <button class="submit" onclick="searchDatabaseById()">Submit</button>
         <br>
+        <p id="warningName"></p>
         <label id="fname">First Name*:</label><input type="text" class="input-boxes" id="firstname"
             oninput="setFirstName(this)" placeholder="Frodo"></input>
+            <button class="submit" onclick="searchDatabaseByName()">Submit Name</button>
         <br>
-        <label id="sname">Surname:</label><input type="text" class="input-boxes" id="surname" oninput="setSurname(this)"
-            placeholder="Baggins"></input>
-        <br>
-        <button type="button" class="clear"onclick="clearTextboxes(2)">Clear</button>
-        <button class="submit" onclick="searchDatabase()">Submit</button>
-        <button class="update" onclick="updateCharacter()">Update</button>
+        <div class="buttons">
+            <button type="button" class="clear" onclick="clearTextboxes(2)">Clear</button>
+            
+            <button class="update" onclick="updateCharacter()">Update</button>
+        </div>
     </div>
     <div>
-        <p>*either input must contain a value in order to search. For nothing cannot spawn something, this isn't
+        <p id="requirement">*either input must contain a value in order to search. For nothing cannot spawn something, this isn't
             science-fiction</p>
     </div>
     <script src="utility.js"></script>

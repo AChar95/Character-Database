@@ -1,4 +1,4 @@
-function fetchData(sendbody, type, endpoint) {
+function fetchData(sendbody, typeRequest, endpoint) {
     return new Promise((resolve, reject) => {
         const req = new XMLHttpRequest();
         req.onreadystatechange = function () {
@@ -11,7 +11,7 @@ function fetchData(sendbody, type, endpoint) {
                 }
             }
         }
-        req.open(type, "http://localhost:8080/Character-Database-1.0/api" + endpoint);
+        req.open(typeRequest, "http://localhost:8080/Character-Database-1.0/api" + endpoint);
         req.setRequestHeader("content-type", "application/json");
         req.send(sendbody);
     })
