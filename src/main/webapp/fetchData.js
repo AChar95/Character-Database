@@ -11,7 +11,7 @@ function fetchData(sendbody, typeRequest, endpoint) {
                 }
             }
         }
-        req.open(typeRequest, "http://localhost:8080/Character-Database-1.0/api" + endpoint);
+        req.open(typeRequest, "http://35.246.82.192:8080/Character-Database-1.0/api" + endpoint);
         req.setRequestHeader("content-type", "application/json");
         req.send(sendbody);
     })
