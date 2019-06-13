@@ -4,7 +4,6 @@ const setId = (number) => id = number.value;
 function showList() {
     document.getElementById("table").innerHTML="";
     let userData = JSON.parse(sessionStorage.getItem("userdata"));
-    console.log(userData);
     let tableOne = document.getElementById("table");
     let header = tableOne.createTHead();
     let rowOne = header.insertRow(0);
@@ -54,7 +53,7 @@ function findId() {
     let findCharacter = fetchData("", "GET", "/characters/" + id).then((value) =>{
         let userFound = value;
         sessionStorage.setItem("userdata", userFound);
-        sessionStorage.setItem("userRoute", "list");
+        sessionStorage.setItem("userRoute", "id")
         window.location.assign("update.html")
     });
     ;

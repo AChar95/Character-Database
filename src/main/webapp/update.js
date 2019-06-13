@@ -4,10 +4,17 @@ let gType = "";
 let clasName = "";
 let id;
 let userData;
-let errorZone = document.getElementById("error");
+let buttonClick = document.getElementById("idDelete");
+let userEntry = JSON.parse(sessionStorage.getItem("userdata"));
+let route = sessionStorage.getItem("userRoute");
 
-userData = sessionStorage.getItem("userdata");
-userData = JSON.parse(userData);
+if (route === "id") {
+    userData = userEntry
+} else if (route === "list") {
+    userData = userEntry[0];
+}
+
+
 id = userData["id"];
 document.getElementById("firstname").value = userData["firstName"];
 document.getElementById("surname").value = userData["surname"];
@@ -19,22 +26,37 @@ const setSurname = (sNameText) => { sName = sNameText.value };
 const setgameType = (gameText) => { gType = gameText.value };
 const setClassName = (classText) => { clasName = classText.value };
 
+buttonClick.onclick = function deleteProfile() {
+    fetchData("", "DELETE", "/characters/" + id).then(() => { window.location.assign("index.html"); }).catch((error) => { errorZone.innerHTML = "You received the following error:" + error });
+}
+
+
 function updateCharacter() {
-
-    errorZone.innerHTML = "";
-    let profile = {
-        firstName: fName,
-        surname: sName,
-        className: clasName,
-        gameType: gType
+    if (fName !== "" && fName !== undefined) {
+        userData["firstName"] = fName;
     }
-    let updatedCharacter = JSON.stringify(profile);
-    fetchData(updatedCharacter, "PUT", "/characters/" + id).then(() => { window.location.assign("index.html"); }).catch((error) => { errorZone.innerHTML = "You received the following error:" + error });
+    if (sName !== "" && sName !== undefined) {
+        userData["surname"] = sName;
+    }
+    if (gType !== "" && gType !== undefined) {
+        userData["gameType"] = gType;
+    }
+    if (clasName !== "" && clasName !== undefined) {
+        userData["className"] = clasName;
+    }
+    let updatedCharacter = JSON.stringify(userData);
+    fetchData(updatedCharacter, "PUT", "/characters/" + id).then(() => {
+        sessionStorage.clear;
+        window.location.assign("index.html"); }).catch((error) => { errorZone.innerHTML = "You received the following error:" + error });
+}
+function showCharacter() {
+    window.location.assign("index.html");
+}
 
-    function showCharacter() {
+function deleteProfile() {
+
+    fetchData("", "DELETE", "/characters/" + id).then(() => {
+        sessionStorage.clear;
         window.location.assign("index.html");
-    }
-
-    function deleteProfile() {
-        errorZone.innerHTML = "";
-        fetchData("", "DELETE", "/characters/" + id).then(() => { window.location.assign("index.html"); }).catch((error) => { errorZone.innerHTML = "You received the following error:" + error }
+    }).catch((error) => { errorZone.innerHTML = "You received the following error:" + error });
+}
