@@ -50,7 +50,7 @@ function showList() {
 
 }
 function findId() {
-    let findCharacter = fetchData("", "GET", "/characters/" + id).then((value) =>{
+    fetchData("", "GET", "/characters/" + id).then((value) =>{
         let userFound = value;
         sessionStorage.setItem("userdata", userFound);
         sessionStorage.setItem("userRoute", "id")
