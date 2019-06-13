@@ -44,18 +44,18 @@ public class CharacterEndpoint {
 	public Response getOneChar(@PathParam("id") int id) {
 		CharacterProfile charId = profRepo.readChar(id);
 		if (profRepo.readChar(id).equals(null)) {
-			return Response.noContent().build();
+			return Response.status(Status.NOT_FOUND).build();
 		}
 		return Response.ok(charId).build();
 	}
 
 	@GET
-	@Path("/characters/{name}")
+	@Path("/charactersName/{firstName}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getCharByName(@PathParam("name") String fName) {
-		List<CharacterProfile> charNameList = profRepo.readName(fName);
+	public Response getCharByName(@PathParam("firstName") String firstName) {
+		List<CharacterProfile> charNameList = profRepo.readName(firstName);
 		if (charNameList.size() == 0) {
-			return Response.noContent().build();
+			return Response.status(Status.NOT_FOUND).build();
 		}
 		return Response.ok(charNameList).build();
 	}
