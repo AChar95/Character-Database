@@ -7,6 +7,7 @@ import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import javax.transaction.Transactional.TxType;
 
+import com.qa.profiles.CharacterProfile;
 import com.qa.profiles.Users;
 
 @Transactional(value = TxType.SUPPORTS)
@@ -38,16 +39,32 @@ public class UserRepository implements ProfileUserRepository {
 		List<Users> userList = tQ.getResultList();
 		return userList;
 	}
-
+	public List<CharacterProfile> readCharacters(int id) {
+		TypedQuery<CharacterProfile> tQ = em.createQuery("Select charac from CharacterProfile Charac WHERE user_id=" + id, CharacterProfile.class);
+		List<CharacterProfile> userCharList = tQ.getResultList();
+		return userCharList;
+	}
+	
 	@Transactional(value = TxType.REQUIRED)
 	public Users update(int id, Users newUser) {
 		Users user = readUser(id);
 		user.setUsername(newUser.getUsername());
 		user.setName(newUser.getName());
-		user.setCharacter(newUser.getCharacter());
 		return user;
 	}
-
+	
+	@Transactional(value = TxType.REQUIRED)
+	public Users updateCharacter(int id, CharacterProfile character) {
+		Users user = readUser(id);
+		user.addCharacter(character);
+		return user;
+	}
+	@Transactional(value =TxType.REQUIRED)
+	public Users removeCharacter(int id, CharacterProfile character) {
+		Users user = readUser(id);
+		user.removeCharacter(character);
+		return user;
+	}
 	@Transactional(value = TxType.REQUIRED)
 	public void deleteUser(int id) {
 		em.remove(readUser(id));

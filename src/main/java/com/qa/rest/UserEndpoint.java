@@ -51,14 +51,23 @@ public class UserEndpoint {
 	@GET
 	@Path("/username/{name}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getUsername(@PathPara("name") String name) {
+	public Response getUsername(@PathParam("name") String name) {
 		List<Users> userNameList = profileUser.readNameUser(name);
 		if (userNameList.size() == 0) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
-		return Response.ok(charNameList).build();
+		return Response.ok(userNameList).build();
 	}
-	
+	@GET
+	@Path("/userChar/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getUserCharacters(@PathParam("id") int id) {
+		List<CharacterProfile> userCharList = profileUser.readCharacters(id);
+		if (userCharList.size() ==0) {
+			return Response.status(Status.NOT_FOUND).build();
+		}
+		return Response.ok(userCharList).build();
+	}
 	@POST
 	@Consumes({ "application/json" })
 	@Produces(MediaType.TEXT_PLAIN)
@@ -79,7 +88,17 @@ public class UserEndpoint {
 		Users userUpdate = profileUser.update(id, user);
 		return Response.ok(userUpdate).build();
 	}
-
+	@PUT
+	@Consumes({"application/json"})
+	@Produces(MediaType.TEXT_PLAIN)
+	@Path("/usersChar/{id}")
+	public Response updateCharUser(CharacterProfile character, @PathParam("id") int id) {
+		if (profileUser.readUser(id).equals(null)){
+			return Response.status(Status.NOT_FOUND).build();
+		}
+		Users userUpdate = profileUser.updateCharacter(id, character);
+		return Response.ok(userUpdate).build();
+	}
 	@DELETE
 	@Path("/users/{id}")
 	public Response deleteUser(@PathParam("id") int id) {
@@ -88,5 +107,15 @@ public class UserEndpoint {
 		}
 		profileUser.deleteUser(id);
 		return Response.noContent().build();
+	}
+	@PUT
+	@Path("/usersDeleteChar/{id}")
+	@Consumes({"application/json"})
+	public Response deleteCharacter(CharacterProfile character, @PathParam("id") int id) {
+		if (profileUser.readUser(id).equals(null)) {
+			return Response.status(Status.NOT_FOUND).build();
+		}
+		Users userUpdated = profileUser.removeCharacter(id, character);
+		return Response.ok(userUpdated).build();
 	}
 }

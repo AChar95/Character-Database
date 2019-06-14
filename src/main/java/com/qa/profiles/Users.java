@@ -20,10 +20,11 @@ public class Users implements UserProfile {
 	@Column(unique = true)
 	private String username;
 	private String name;
+	
 
 	@OneToMany(cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "character_id")
-	Set<CharacterProfile> characters = new HashSet<CharacterProfile>();
+	@JoinColumn(name = "User_id")
+	Set<CharacterProfile> characters;
 
 	public String getUsername() {
 		return username;
@@ -41,12 +42,14 @@ public class Users implements UserProfile {
 		this.name = name;
 	}
 
-	public Set<CharacterProfile> getCharacter() {
+	public Set<CharacterProfile> removeCharacter(CharacterProfile userCharac) {
+		characters.remove(userCharac);
 		return characters;
+		
 	}
 
-	public Set<CharacterProfile> setCharacter(Set<CharacterProfile> userCharact) {
-		characters.addAll(userCharact);
+	public Set<CharacterProfile> addCharacter(CharacterProfile userCharac) {
+		characters.add(userCharac);
 		return characters;
 	}
 

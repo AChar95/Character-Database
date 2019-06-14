@@ -9,7 +9,7 @@ let userEntry = JSON.parse(sessionStorage.getItem("userdata"));
 let route = sessionStorage.getItem("userRoute");
 
 if (route === "id") {
-    userData = userEntry
+    userData = userEntry;
 } else if (route === "list") {
     userData = userEntry[0];
 }

@@ -14,15 +14,6 @@ public class CharacterProfile implements Profiles {
 	private String surname;
 	private String gameType;
 	private String className;
-	private String owner;
-
-	public String getOwner() {
-		return owner;
-	}
-
-	public void setOwner(String owner) {
-		this.owner = owner;
-	}
 
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;

@@ -50,10 +50,9 @@ public class CharacterRepository implements ProfileRepository {
 		character.setSurname(newChar.getSurname());
 		character.setClassName(newChar.getClassName());
 		character.setGameType(newChar.getGameType());
-		character.setOwner(newChar.getOwner());
 		return character;
 	}
-
+	
 	@Transactional(value = TxType.REQUIRED)
 	public void deleteChar(int id) {
 		em.remove(readChar(id));

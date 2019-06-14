@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="search.css">
+    <link rel="stylesheet" type="text/css" href="new.css">
     </link>
 
 </header>
-<title>Update your Character</title>
 
+<title>What's New?</title>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="Home.html">Navbar</a>
@@ -33,35 +33,30 @@
 </nav>
 
 <body>
-
-    <div>
-        <p>Your search has returned multiple characters, please find the character you wish to edit and insert their id
-            below</p>
-    </div>
-    <div>
-        <label>Character id</label><input type="number" class="input-boxes" id="id" oninput="setId(this)"
-            placeholder="15"></input>
-        <br>
-        <button type="button" class="clear" onclick="clearTextboxes(3)">Clear</button>
-        <button type="button" class="show" onclick="showList()">Show list</button>
-        <button class="submit" onclick="findId()">submit</button>
-    </div>
-    <div id="characters">
-        <table id="table">
-        </table>
+    <div id="mainBody">
+        <h1 id="heading1">About</h1>
+        <p id="About">Based on my love for all things table-top RPG (Role Playing Game). <br> This is a project written
+            in
+            the following languages: Java, html, JavaScript.
+        </p>
+        <p id="credit">I would like the following artists for access to their images:
+            <br>Landing image by <a
+                href="https://pixabay.com/users/JAKO5D-2733400/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1732108">JAKO5D</a>
+            from <a
+                href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1732108">Pixabay</a>
+            <br>
+        </p>
     </div>
 </body>
-<script src="fetchData.js"></script>
-<script src="update_list.js"></script>
-<script src="utility.js"></script>
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
 
 </html>

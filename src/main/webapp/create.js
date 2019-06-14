@@ -20,5 +20,8 @@ function addCharacter() {
     }
     let newCharacter = JSON.stringify(profile);
     fetchData(newCharacter, "POST", "/characters");
+    let userId = sessionStorage.getItem("User");
+    let pin = userId.id;
+    fetchData(newCharacter, "PUT", "/usersChar/" + pin).catch((error) => console.log(error));
 }
 

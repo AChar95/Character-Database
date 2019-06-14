@@ -51,8 +51,13 @@ function showList() {
 }
 function findId() {
     fetchData("", "GET", "/characters/" + id).then((value) =>{
-        let userFound = value;
-        sessionStorage.setItem("userdata", userFound);
+        let pinId = JSON.parse(sessionStorage.getItem("User"));
+
+        let userCharacters = JSON.parse(value);
+        let userFound = userCharacters.filter(function (userCharacters) {
+            return userCharacters.User_id === pinId.id;
+        })
+        sessionStorage.setItem("userdata", JSON.stringify(userFound));
         sessionStorage.setItem("userRoute", "id")
         window.location.assign("update.html")
     });
