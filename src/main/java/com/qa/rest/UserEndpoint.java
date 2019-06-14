@@ -48,7 +48,17 @@ public class UserEndpoint {
 		}
 		return Response.ok(userId).build();
 	}
-
+	@GET
+	@Path("/username/{name}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getUsername(@PathPara("name") String name) {
+		List<Users> userNameList = profileUser.readNameUser(name);
+		if (userNameList.size() == 0) {
+			return Response.status(Status.NOT_FOUND).build();
+		}
+		return Response.ok(charNameList).build();
+	}
+	
 	@POST
 	@Consumes({ "application/json" })
 	@Produces(MediaType.TEXT_PLAIN)
