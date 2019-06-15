@@ -1,6 +1,5 @@
 package com.qa.profiles;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -22,7 +21,7 @@ public class Users implements UserProfile {
 	private String name;
 	
 
-	@OneToMany(cascade = CascadeType.PERSIST)
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "User_id")
 	Set<CharacterProfile> characters;
 

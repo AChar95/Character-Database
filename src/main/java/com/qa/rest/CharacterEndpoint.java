@@ -64,8 +64,8 @@ public class CharacterEndpoint {
 	@POST
 	@Consumes({ "application/json" })
 	@Produces(MediaType.TEXT_PLAIN)
-	@Path("/charactersUsers/{id}")
-	public Response createCharacter(CharacterProfile character, @PathParam("id") int id ,@Context UriInfo uriInfo) {
+	@Path("/characters")
+	public Response createCharacter(CharacterProfile character,@Context UriInfo uriInfo) {
 		character = profRepo.createChar(character);
 		URI createdURI = uriInfo.getBaseUriBuilder().path("" + character.getId()).build();
 		return Response.ok(createdURI.toString()).status(Status.CREATED).build();

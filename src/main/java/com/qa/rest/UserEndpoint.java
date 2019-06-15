@@ -59,7 +59,7 @@ public class UserEndpoint {
 		return Response.ok(userNameList).build();
 	}
 	@GET
-	@Path("/userChar/{id}")
+	@Path("/user/char/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getUserCharacters(@PathParam("id") int id) {
 		List<CharacterProfile> userCharList = profileUser.readCharacters(id);
@@ -111,6 +111,7 @@ public class UserEndpoint {
 	@PUT
 	@Path("/usersDeleteChar/{id}")
 	@Consumes({"application/json"})
+	@Produces(MediaType.TEXT_PLAIN)
 	public Response deleteCharacter(CharacterProfile character, @PathParam("id") int id) {
 		if (profileUser.readUser(id).equals(null)) {
 			return Response.status(Status.NOT_FOUND).build();

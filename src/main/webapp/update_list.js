@@ -3,7 +3,7 @@ const setId = (number) => id = number.value;
 
 function showList() {
     document.getElementById("table").innerHTML="";
-    let userData = JSON.parse(sessionStorage.getItem("userdata"));
+    let userData = JSON.parse(sessionStorage.getItem("userData"));
     let tableOne = document.getElementById("table");
     let header = tableOne.createTHead();
     let rowOne = header.insertRow(0);
@@ -51,11 +51,11 @@ function showList() {
 }
 function findId() {
     fetchData("", "GET", "/characters/" + id).then((value) =>{
-        let pinId = JSON.parse(sessionStorage.getItem("User"));
+        let userId = JSON.parse(sessionStorage.getItem("User"));
 
         let userCharacters = JSON.parse(value);
         let userFound = userCharacters.filter(function (userCharacters) {
-            return userCharacters.User_id === pinId.id;
+            return userCharacters.User_id === userId["number"];
         })
         sessionStorage.setItem("userdata", JSON.stringify(userFound));
         sessionStorage.setItem("userRoute", "id")
