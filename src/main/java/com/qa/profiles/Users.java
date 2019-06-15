@@ -18,12 +18,13 @@ public class Users implements UserProfile {
 	private int id;
 	@Column(unique = true)
 	private String username;
+	@Column(unique = false)
 	private String name;
 	
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "User_id")
-	Set<CharacterProfile> characters;
+	private Set<CharacterProfile> characters;
 
 	public String getUsername() {
 		return username;

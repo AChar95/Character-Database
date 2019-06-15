@@ -3,7 +3,6 @@ package com.qa.characterRepo;
 import java.util.List;
 
 import com.qa.profiles.CharacterProfile;
-import com.qa.profiles.Users;
 
 public interface ProfileRepository {
 	

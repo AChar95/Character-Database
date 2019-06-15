@@ -1,9 +1,13 @@
 body{
-    background-image: url("Resources/Landing.jpg");
+    background-image: url("img/Landing.jpg");
 }
 
 .container {
     padding-top: 100px;
+}
+#comName {
+    color: white;
+    text-emphasis: bold;
 }
 #introText {
     color: white;

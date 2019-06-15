@@ -25,8 +25,9 @@ function searchDatabaseById() {
             sessionStorage.setItem("userdata", JSON.stringify(char));
             window.location.assign("update.html");
         }
-    }).catch((error));
-}
+    }).catch((error) => console.log(error));
+};
+
 function searchDatabaseByName() {
     if (fName === "") {
         document.getElementById("warningName").innerHTML = "You have not inserted a name";
@@ -39,9 +40,10 @@ function searchDatabaseByName() {
             return charList.firstName == fName;
         })
         if (char.length === 0) {
-            document.getElementById("warningId").innerHTML = "You have not inserted a correct id";
+            document.getElementById("warningId").innerHTML = "You have not inserted a correct name";
         } else {
             sessionStorage.setItem("userData", JSON.stringify(char));
+            sessionStorage.setItem("userRoute", "list")
             if (char.length > 1) {
                 window.location.assign("update_list.html");
             } else {
@@ -49,12 +51,12 @@ function searchDatabaseByName() {
             }
         }
 
-    })
-}
+    });
+};
 function showAllUserChar() {
     fetchData("null", "GET", "/user/char/" + userId).then((value) => {
         sessionStorage.setItem("userData", value);
         sessionStorage.setItem("Route")
         window.location.assign("update_list.html");
-    })
-}
+    });
+};

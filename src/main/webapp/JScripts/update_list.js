@@ -51,16 +51,10 @@ function showList() {
 }
 function findId() {
     fetchData("", "GET", "/characters/" + id).then((value) =>{
-        let userId = JSON.parse(sessionStorage.getItem("User"));
-
-        let userCharacters = JSON.parse(value);
-        let userFound = userCharacters.filter(function (userCharacters) {
-            return userCharacters.User_id === userId["number"];
-        })
-        sessionStorage.setItem("userdata", JSON.stringify(userFound));
+        sessionStorage.setItem("userData", value);
         sessionStorage.setItem("userRoute", "id")
         window.location.assign("update.html")
-    });
+    }).catch((error) );
     ;
 
 }

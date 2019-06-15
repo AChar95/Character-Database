@@ -5,7 +5,7 @@ let clasName = "";
 let id;
 let userData;
 let updatedCharacter
-let userId = sessionStorage.getItem("Data");
+let userId = JSON.parse(sessionStorage.getItem("Data"));
 let buttonClick = document.getElementById("idDelete");
 let userEntry = JSON.parse(sessionStorage.getItem("userData"));
 let route = sessionStorage.getItem("userRoute");
@@ -71,13 +71,9 @@ function showCharacter() {
 }
 
 function deleteProfile() {
-
+    userData = JSON.stringify(userEntry);
     fetchData("", "DELETE", "/characters/" + id).then(() => {
-        fetchData("", "PUT", "/usersDeleteChar/" + userId["number"]).then(() => {
-            sessionStorage.removeItem
-            window.location.assign("index.html");
-        }).catch((error) => {
-            errorZone.innerHTML = "You received the following error:" + error
-        });
+        sessionStorage.removeItem("userData")
+        window.location.assign("index.html");
     }).catch((error) => { errorZone.innerHTML = "You received the following error:" + error });
 }
