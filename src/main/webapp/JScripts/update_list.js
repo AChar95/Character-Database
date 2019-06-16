@@ -3,7 +3,7 @@ const setId = (number) => id = number.value;
 
 function showList() {
     document.getElementById("table").innerHTML="";
-    let userData = JSON.parse(sessionStorage.getItem("userdata"));
+    let userData = JSON.parse(sessionStorage.getItem("userData"));
     let tableOne = document.getElementById("table");
     let header = tableOne.createTHead();
     let rowOne = header.insertRow(0);
@@ -50,12 +50,11 @@ function showList() {
 
 }
 function findId() {
-    let findCharacter = fetchData("", "GET", "/characters/" + id).then((value) =>{
-        let userFound = value;
-        sessionStorage.setItem("userdata", userFound);
+    fetchData("", "GET", "/characters/" + id).then((value) =>{
+        sessionStorage.setItem("userData", value);
         sessionStorage.setItem("userRoute", "id")
         window.location.assign("update.html")
-    });
+    }).catch((error) );
     ;
 
 }

@@ -1,0 +1,21 @@
+body{
+    background-image: url("img/Landing.jpg");
+}
+
+.container {
+    padding-top: 100px;
+}
+#comName {
+    color: white;
+    text-emphasis: bold;
+}
+#introText {
+    color: white;
+}
+#submit {
+    color: white;
+    background-color: black;
+}
+#submit:hover {
+    background-color: rgb(69, 78, 87);
+}

@@ -6,17 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="Styles/search.css">
+    <link rel="stylesheet" type="text/css" href="Styles/Landing.css">
     </link>
 
 </header>
-<title>Search for Character</title>
+<title>RPG character Database</title>
 
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="Home.html">
-        <img src="Styles/img/Icon.2_43.png" width="40" height="40" class="d-inline-block align-top" alt="">RPG
-        Database</a>
+        <img src="Styles/img/Icon.2_43.png" width="40" height="40" class="d-inline-block align-top" alt="">RPG Database</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -36,49 +35,15 @@
 </nav>
 
 <body>
-    <div class="container">
-        <div class="d-flex justify-content-center">
-            <h5 id="intro">When navigating this page please remember that your character name is case sensitive</h5>
-        </div>
-        <div class="d-flex justify-content-center">
-            <p id="warningId"></p>
-        </div>
-        <div class="d-flex justify-content-center">
-            <label>Character id number*:</label><input type="number" class="input-boxes" id="idNumber"
-                oninput="setId(this)" placeholder="15"></input>
-            <button class="submit" onclick="searchDatabaseById()">Submit</button>
-        </div>
-        <div>
-            <br>
-            <br>
-        </div>
-        <div class="d-flex justify-content-center">
-            <p id="warningName"></p>
-        </div>
-        <div class="d-flex justify-content-center">
-            <label id="fname">First Name*:</label><input type="text" class="input-boxes" id="firstname"
-                oninput="setFirstName(this)" placeholder="Frodo"></input>
-            <button class="submit" onclick="searchDatabaseByName()">Submit</button>
-        </div>
-        <div>
-            <br>
-            <br>
-        </div>
-        <div class="d-flex justify-content-center">
-            <div class="buttons">
-                <button type="button" class="clear" onclick="clearTextboxes(2)">Clear</button>
-            </div>
-        </div>
-    </div>
-    <div>
-        <br>
-        <br>
-    </div>
-    <div>
-        <p id="requirement">*either input must contain a value in order to search. For nothing cannot spawn
-            something, this isn't
-            science-fiction</p>
-    </div>
+    <section class="intro_section">
+        <h1 id="landing">RPG Character Database</h1>
+        <h5 id="welcome"></h5>
+        <p id="intro"> This website is part of a simple java-based application that will hold all of your table-top
+            rpg based characters, each page will feature instructions on how each section will work and what data is
+            required to be entered.
+        </p>
+        <p id="navigation"> Please select "new character" in the menu above to enter your first character</p>
+    </section>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -88,7 +53,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script src="JScripts/utility.js"></script>
-    <script src="JScripts/fetchData.js"></script>
-    <script src="JScripts/search.js"></script>
+        <script src="JScripts/fetchData.js"></script>
+        <script src="JScripts/home.js"></script>
 </body>
+
+</html>

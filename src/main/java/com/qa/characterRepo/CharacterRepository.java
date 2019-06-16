@@ -13,7 +13,7 @@ import com.qa.profiles.CharacterProfile;
 @Transactional(value = TxType.SUPPORTS)
 public class CharacterRepository implements ProfileRepository {
 
-	@PersistenceContext(unitName = "myPU")
+	@PersistenceContext(unitName = "myPu")
 	private EntityManager em;
 
 	@Transactional(value = TxType.REQUIRED)
@@ -52,7 +52,7 @@ public class CharacterRepository implements ProfileRepository {
 		character.setGameType(newChar.getGameType());
 		return character;
 	}
-
+	
 	@Transactional(value = TxType.REQUIRED)
 	public void deleteChar(int id) {
 		em.remove(readChar(id));

@@ -1,0 +1,30 @@
+ul {
+    position: sticky;
+    list-style-type: none;
+    margin: 0;
+    padding:0;
+    overflow: hidden;
+}
+li {
+    float: left;
+}
+.nav-item{
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+li a:hover {
+    background-color: rgb(65, 65, 68);
+    color: white;
+}
+label {
+    width: 90px;
+    text-align: right;
+}
+
+#deleteBut {
+    background-color: red;
+    color: black;
+    padding: 10px;
+}

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="search.css">
+    <link rel="stylesheet" type="text/css" href="Styles/update.css">
     </link>
 
 </header>
@@ -14,84 +14,104 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#new">New</a></li>
-            <li class="nav-item"><a class="nav-link" href="create.html">New Character</a></li>
-            <li class="nav-item"><a class="nav-link" href="search.html">Find previous character</a></li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        </ul>
-    </div>
-</nav>
+        <a class="navbar-brand" href="Home.html">
+            <img src="Styles/img/Icon.2_43.png" width="40" height="40" class="d-inline-block align-top" alt="">RPG Database</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="Home.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="New.html">New</a></li>
+                <li class="nav-item"><a class="nav-link" href="create.html">New Character</a></li>
+                <li class="nav-item"><a class="nav-link" href="search.html">Find previous character</a></li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" id="user" href="user.html"></a></li>
+                <li class="nav-item"><a class="nav-link" href="About.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    
 
 <body>
     <div>
         <p>Please enter the details you wish to change below, don't leave a value in any of the boxes that you don't
             wish to keep</p>
     </div>
-    <div>
-        <label>First Name:</label><input type="text" class="input-boxes" id="firstname" oninput="setFirstName(this)"
-            placeholder="Frodo"></input>
-        <br>
-        <label>Surname:</label><input type="text" class="input-boxes" id="surname" oninput="setSurname(this)"
-            placeholder="Baggins"></input>
-        <br>
-        <label>Class Name:</label><input type="text" class="input-boxes" id="class" oninput="setClassName(this)"
-            placeholder="Bard"></input>
-        <br>
-        <label>Game Type:</label><input type="text" class="input-boxes" id="gametype" oninput="setgameType(this)"
-            placeholder="Lord of the Rings"></input>
-        <br>
-    </div>
-    <div>
-        <p id="errors"></p>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal">Delete</button>
-        <button type="button" class="show" onclick="showCharacter()">Show</button>
-        <button type="button" class= "" onclick="updateCharacter()">submit</button>
-        <p id="errors"></p>
-    </div>
-      <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="deleteModalLabel">Are you sure?</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              Deleting this profile will be permenant, are you sure you want to proceed?
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" onclick="deleteProfile()">Save changes</button>
-            </div>
-          </div>
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <label>First Name:</label><input type="text" class="input-boxes" id="firstname" oninput="setFirstName(this)"
+                placeholder="Frodo"></input>
         </div>
-      </div>
+        <div class="d-flex justify-content-center">
+            <br>
+        </div>
+        <div class="d-flex justify-content-center">
+            <label>Surname:</label><input type="text" class="input-boxes" id="surname" oninput="setSurname(this)"
+                placeholder="Baggins"></input>
+        </div>
+        <div>
+            <br>
+        </div>
+        <div class="d-flex justify-content-center">
+            <label>Class Name:</label><input type="text" class="input-boxes" id="class" oninput="setClassName(this)"
+                placeholder="Bard"></input>
+        </div>
+        <div>
+            <br>
+        </div>
+        <div class="d-flex justify-content-center">
+            <label>Game Type:</label><input type="text" class="input-boxes" id="gametype" oninput="setgameType(this)"
+                placeholder="Lord of the Rings"></input>
+        </div>
+        <div>
+            <br>
+        </div>
+    </div>
+    <div class="container">
+        <p id="errors"></p>
+        <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal" id="deleteBut">Delete</button>
+        <button type="button" class="btn btn-primary" onclick="showCharacter()">Show</button>
+        <button type="button" class="btn btn-primary" onclick="updateCharacter()">submit</button>
+        </div>
+    </div>
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Are you sure?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Deleting this profile will be permenant, are you sure you want to proceed?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="deleteProfile()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="JScripts/fetchData.js"></script>
+    <script src="JScripts/update.js"></script>
+    <script src="JScripts/utility.js"></script>
 </body>
-
-
-<script src="fetchData.js"></script>
-<script src="update.js"></script>
-<script src="utility.js"></script>
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
 
 </html>

@@ -1,4 +1,5 @@
 function fetchData(sendbody, typeRequest, endpoint) {
+    const mainPath =window.location.host
     return new Promise((resolve, reject) => {
         const req = new XMLHttpRequest();
         req.onreadystatechange = function () {

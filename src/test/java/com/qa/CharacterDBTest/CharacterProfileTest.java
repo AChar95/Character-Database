@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.qa.profiles.CharacterProfile;
-import com.qa.profiles.GameTypes;
 
 public class CharacterProfileTest {
 	CharacterProfile character;
@@ -44,25 +43,5 @@ public class CharacterProfileTest {
 		String retrievedClass = character.getClassName();
 		assertEquals("Error game type not set correctly", className, retrievedClass);
 	}
-	@Test
-	public void gameName() {
-		GameTypes game = new GameTypes();
-		String gameName = "Dungeons and Dragons";
-		game.setGameName(gameName);
-		String retrievedName = game.getGameName();
-		assertEquals("Error game name not set", gameName, retrievedName);
-	}
-	@Test
-	public void genreType() {
-		GameTypes game = new GameTypes();
-		String genreName = "Fantasy";
-		game.setGenreName(genreName);
-		String retrievedGenre = game.getGenreName();
-		assertEquals("Error Game genre not set", genreName, retrievedGenre);
-	}
 	
-	
-	
-	
-
 }
