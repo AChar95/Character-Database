@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.qa.profiles.CharacterProfile;
 import com.qa.profiles.UserProfile;
 import com.qa.profiles.Users;
 
@@ -29,4 +30,6 @@ public class UserTests {
 		user.setName("Terry");
 		assertEquals("Could not retrieve name", "Terry", user.getName());
 	}
+	
 }
+

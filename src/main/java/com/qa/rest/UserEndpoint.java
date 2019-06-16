@@ -99,6 +99,7 @@ public class UserEndpoint {
 		Users userUpdate = profileUser.updateCharacter(id, character);
 		return Response.ok(userUpdate).build();
 	}
+	
 	@DELETE
 	@Path("/users/{id}")
 	public Response deleteUser(@PathParam("id") int id) {
@@ -107,16 +108,5 @@ public class UserEndpoint {
 		}
 		profileUser.deleteUser(id);
 		return Response.noContent().build();
-	}
-	@PUT
-	@Path("/usersDeleteChar/{id}")
-	@Consumes({"application/json"})
-	@Produces(MediaType.TEXT_PLAIN)
-	public Response deleteCharacter(CharacterProfile character, @PathParam("id") int id) {
-		if (profileUser.readUser(id).equals(null)) {
-			return Response.status(Status.NOT_FOUND).build();
-		}
-		Users userUpdated = profileUser.removeCharacter(id, character);
-		return Response.ok(userUpdated).build();
 	}
 }
