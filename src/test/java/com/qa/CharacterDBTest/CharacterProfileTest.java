@@ -1,4 +1,4 @@
-package com.qa.CharacterDBTest;
+package com.qa.characterDBTest;
 
 import static org.junit.Assert.*;
 
