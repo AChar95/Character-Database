@@ -27,24 +27,6 @@ const setSurname = (sNameText) => { sName = sNameText.value };
 const setgameType = (gameText) => { gType = gameText.value };
 const setClassName = (classText) => { clasName = classText.value };
 
-buttonClick.onclick = function deleteProfile() {
-    let userId = sessionStorage.getItem("Data");
-    fetchData("", "DELETE", "/characters/" + id).then(() => {
-        fetchData(JSON.stringify(userEntry), "PUT", "/usersDeleteChar/" + userId["number"]).then(() => {
-            sessionStorage.removeItem("userData");
-            sessionStorage.removeItem("userRoute");
-            window.location.assign("index.html");
-        }).catch((error) => {
-            errorZone.innerHTML = "You received the following error:" + error
-        });
-    }).catch((error) => {
-        errorZone.innerHTML = "You received the following error:" + error
-    });
-
-
-}
-
-
 function updateCharacter() {
     if (fName !== "" && fName !== undefined) {
         userData["firstName"] = fName;
@@ -60,7 +42,6 @@ function updateCharacter() {
     }
     updatedCharacter = JSON.stringify(userData);
     fetchData(updatedCharacter, "PUT", "/characters/" + id).then(() => {
-        fetchData(updatedCharacter, "PUT", "/user/char/" + userId["number"]).then(() => {
             sessionStorage.removeItem("userData")
             window.location.assign("index.html");
         });
