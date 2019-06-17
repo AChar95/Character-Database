@@ -7,7 +7,6 @@ function fetchData(sendbody, typeRequest, endpoint) {
                 if (req.status >= 200 && req.status < 300) {
                     resolve(req.responseText);
                 } else {
-                    alert("The character profile could not be found, please check the id value or spelling of the name");
                     reject("Could not connect properly");
                 }
             }

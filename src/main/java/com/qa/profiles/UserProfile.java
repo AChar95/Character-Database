@@ -12,11 +12,16 @@ public interface UserProfile {
 
 	public void setName(String name);
 
-	
+	public Set<CharacterProfile> setupChar();
+
+	public boolean getCharacter(CharacterProfile character);
+
 	public Set<CharacterProfile> removeCharacter(CharacterProfile character);
 
 	public Set<CharacterProfile> addCharacter(CharacterProfile character);
 
 	public int getId();
+
+	public void setId(int id);
 
 }

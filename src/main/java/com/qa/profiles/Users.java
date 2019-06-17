@@ -1,5 +1,6 @@
 package com.qa.profiles;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -20,7 +21,6 @@ public class Users implements UserProfile {
 	private String username;
 	@Column(unique = false)
 	private String name;
-	
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "User_id")
@@ -28,6 +28,10 @@ public class Users implements UserProfile {
 
 	public String getUsername() {
 		return username;
+	}
+
+	public Set<CharacterProfile> setupChar() {
+		return characters = new HashSet<CharacterProfile>();
 	}
 
 	public void setUsername(String username) {
@@ -42,10 +46,14 @@ public class Users implements UserProfile {
 		this.name = name;
 	}
 
+	public boolean getCharacter(CharacterProfile character) {
+		return characters.contains(character);
+	}
+
 	public Set<CharacterProfile> removeCharacter(CharacterProfile userCharac) {
 		characters.remove(userCharac);
 		return characters;
-		
+
 	}
 
 	public Set<CharacterProfile> addCharacter(CharacterProfile userCharac) {
@@ -55,6 +63,10 @@ public class Users implements UserProfile {
 
 	public int getId() {
 		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }

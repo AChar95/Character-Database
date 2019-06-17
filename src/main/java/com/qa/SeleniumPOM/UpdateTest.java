@@ -6,20 +6,21 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class UpdateTest {
-	@FindBy(xpath = "//*[@id=\"firstname\"]")
+	@FindBy(id = "firstname")
 	WebElement firstName;
-	@FindBy(xpath = "//*[@id=\"surname\"]")
+	@FindBy(id = "surname")
 	WebElement surName;
-	@FindBy(xpath = "//*[@id=\"class\"]")
+	@FindBy(id = "class")
 	WebElement className;
-	@FindBy(xpath = "//*[@id=\"gametype\"]")
+	@FindBy(id = "gametype")
 	WebElement gameType;
-	@FindBy(xpath="//*[@id=\"deleteBut\"]")
+	@FindBy(xpath = "/html/body/div[3]/div/button[3]")
+	WebElement submit;
+	@FindBy(id = "deleteBut")
 	WebElement deleteButton;
-	@FindBy(xpath = "//*[@id=\"deleteModal\"]/div/div/div[3]/button[2]")
+	@FindBy(id = "btn btn-primary")
 	WebElement modalButton;
-	
-	
+
 	WebDriver driver;
 
 	public UpdateTest(WebDriver driver) {
@@ -28,27 +29,30 @@ public class UpdateTest {
 	}
 
 	public String checkfName() {
-		return firstName.getText();
+		return firstName.getAttribute("value");
 	}
 
 	public String checkSName() {
-		return surName.getText();
+		return surName.getAttribute("value");
 	}
 
 	public String checkClassName() {
-		return className.getText();
+		return className.getAttribute("value");
 	}
 
 	public String checkGameType() {
-		return gameType.getText();
+		return gameType.getAttribute("value");
 	}
 
 	public void changeProperty(String clasName) {
 		className.sendKeys(clasName);
+		submit.click();
+
 	}
-	public void deleteKey() {
+
+	public void deleteKey() throws InterruptedException {
 		deleteButton.click();
-		
+		Thread.sleep(2000);
 		modalButton.click();
 	}
 }
