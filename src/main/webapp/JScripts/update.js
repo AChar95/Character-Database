@@ -60,7 +60,7 @@ function updateCharacter() {
     }
     updatedCharacter = JSON.stringify(userData);
     fetchData(updatedCharacter, "PUT", "/characters/" + id).then(() => {
-        fetchData(updatedCharacter, "PUT", "/usersChar/" + userId["number"]).then(() => {
+        fetchData(updatedCharacter, "PUT", "/user/char/" + userId["number"]).then(() => {
             sessionStorage.removeItem("userData")
             window.location.assign("index.html");
         });
