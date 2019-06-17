@@ -1,3 +1,6 @@
+body{
+    background-image: url("img/Landing.jpg");
+}
 ul {
     position: sticky;
     list-style-type: none;
