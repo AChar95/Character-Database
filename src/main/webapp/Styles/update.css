@@ -1,6 +1,7 @@
 body{
     background-image: url("img/Black\ knight.jpg");
     background-position: top;
+    color:white;
 }
 ul {
     position: sticky;
