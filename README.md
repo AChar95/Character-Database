@@ -1,5 +1,7 @@
 # Character-Database
-A front, back and api for hosting a character databse
+A front, back and api for hosting a character database
+
+**Notes: Master is the most stable build of the website, developer is stable but has experimental functionality such as the log in page, the other branches such as selenium testing are for testing purposes and should not be cloned and are not considered to be stable, the only branches I recommend copying is either master or Developer for the most complete build**
 
 ## 1. Operating the site
 Initially the user will be prompted to create a user name this is entirely up to the user and can be any combination of characters and letters, the only constraint is that the username must be unique, currently there is no password in place this will be a future sprint, and due to nature of testing the overall functionality, this feature was restricted to a later build as it would restrict fast access to core functionality of the page. Navigate to the **Create Character** page using the navbar at the top of the page, here you can create your character. Clicking on the **Find Character** link at the top will allow you to search for **your own** characters (characters made by other users will not be visible to you). after searching for your desired character you will then be taken to an update page where you can see the character details and you can update them as you wish. if you have more than one character with the same first name you will then be taken to a page which will display a list of characters that you have access to with that name, and you will be asked the id of the character you wish to alter, submit this and you will be taken to the normal update page.
@@ -16,19 +18,32 @@ Requirements:
  4. Java JDK and JRE 8
  
  Ensure that the standalone.xml file that was included as part of Wildfly(in standalone/configuration) is edited to allow for a persistant database:
+ 
  < datasource jta="true" jndi-name="java:jboss/datasources/MyApplicationDS" pool-name="MyApplicationDS" enabled="true" use-ccm="true">
-    < connection-url>jdbc:h2:tcp://localhost/~/test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</ connection-url> 
+ 
+ < connection-url>jdbc:h2:tcp://localhost/~/test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</ connection-url> 
+ 
  < driver-class>org.h2.Driver</ driver-class>
+ 
  < driver>h2</ driver>
+ 
  < security> 
+ 
  < user-name>sa</ user-name>
+ 
  < password>sa</ password> 
+ 
  </ security> 
+ 
  < validation> 
+ 
  < background-validation>false</ background-validation>
+ 
  </ validation>
+ 
  </ datasource>
-    
+ 
+ 
 The above portion of code must be placed following the section containing the local in-memory database, easiest method to find this would be to search for datasources in the file.
 Within the project navigate to the Character-Database\src\main\webapp\JScripts folder and alter the fetchData.js, you will see the following file:
 
