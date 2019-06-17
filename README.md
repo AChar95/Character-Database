@@ -16,18 +16,18 @@ Requirements:
  4. Java JDK and JRE 8
  
  Ensure that the standalone.xml file that was included as part of Wildfly(in standalone/configuration) is edited to allow for a persistant database:
- < datasource jta="true" jndi-name="java:jboss/datasources/MyApplicationDS" pool-name="MyApplicationDS" enabled="true" use-ccm="true"> 
+ < datasource jta="true" jndi-name="java:jboss/datasources/MyApplicationDS" pool-name="MyApplicationDS" enabled="true" use-ccm="true">
     < connection-url>jdbc:h2:tcp://localhost/~/test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</ connection-url> 
-    < driver-class>org.h2.Driver</ driver-class>
-    < driver>h2</ driver>
-    < security> 
-        < user-name>sa</ user-name> 
-        < password>sa</ password> 
-    </ security> 
-    < validation> 
-          < background-validation>false</ background-validation> 
-    </ validation> 
-    </ datasource>
+ < driver-class>org.h2.Driver</ driver-class>
+ < driver>h2</ driver>
+ < security> 
+ < user-name>sa</ user-name>
+ < password>sa</ password> 
+ </ security> 
+ < validation> 
+ < background-validation>false</ background-validation>
+ </ validation>
+ </ datasource>
     
 The above portion of code must be placed following the section containing the local in-memory database, easiest method to find this would be to search for datasources in the file.
 Within the project navigate to the Character-Database\src\main\webapp\JScripts folder and alter the fetchData.js, you will see the following file:
