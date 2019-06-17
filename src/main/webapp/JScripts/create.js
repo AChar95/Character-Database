@@ -25,7 +25,7 @@ function addCharacter() {
     let userId = JSON.parse(sessionStorage.getItem("Data"));
     fetchData(newCharacter, "PUT", "/usersChar/" + userId["number"]).then(() => {
         document.getElementById("outcome").innerHTML = "You have successfully created your character";
-        document.getElementById("outcome").style.color="green";
+        document.getElementById("outcome").style.color="white";
         setTimeout(function () { document.getElementById("outcome").innerHTML = " "; }, 4000);
     }).catch((error) => console.log(error));
 };
