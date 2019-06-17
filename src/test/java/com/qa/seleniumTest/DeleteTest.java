@@ -1,14 +1,16 @@
 package com.qa.seleniumTest;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import com.qa.SeleniumPOM.FindCharTest;
-import com.qa.SeleniumPOM.LandingTest;
-import com.qa.SeleniumPOM.UpdateTest;
+import com.qa.seleniumPOM.FindCharTest;
+import com.qa.seleniumPOM.LandingTest;
+import com.qa.seleniumPOM.UpdateTest;
 
 public class DeleteTest {
 	WebDriver driver;

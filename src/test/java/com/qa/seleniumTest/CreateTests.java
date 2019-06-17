@@ -10,11 +10,11 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import com.qa.Categories.CategoryOne;
-import com.qa.SeleniumPOM.CreatePage;
-import com.qa.SeleniumPOM.HomeTest;
-import com.qa.SeleniumPOM.LandingTest;
-import com.qa.SeleniumPOM.RegisterTest;
+import com.qa.categories.CategoryOne;
+import com.qa.seleniumPOM.CreatePage;
+import com.qa.seleniumPOM.HomeTest;
+import com.qa.seleniumPOM.LandingTest;
+import com.qa.seleniumPOM.RegisterTest;
 
 @Category(CategoryOne.class)
 public class CreateTests {

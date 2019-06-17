@@ -1,4 +1,4 @@
-package com.qa.Categories;
+package com.qa.categories;
 
 public interface CategoryThree {
 

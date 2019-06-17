@@ -1,4 +1,4 @@
-package com.qa.SeleniumPOM;
+package com.qa.seleniumPOM;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
