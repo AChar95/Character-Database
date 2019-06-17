@@ -1,3 +1,7 @@
+body{
+    background-image: url("img/Black\ knight.jpg");
+    background-position: top;
+}
 ul {
     position: sticky;
     list-style-type: none;
