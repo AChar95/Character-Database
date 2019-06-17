@@ -43,7 +43,7 @@ function updateCharacter() {
     updatedCharacter = JSON.stringify(userData);
     fetchData(updatedCharacter, "PUT", "/characters/" + id).then(() => {
             sessionStorage.removeItem("userData")
-            window.location.assign("index.html");
+            window.location.assign("Home.html");
         }).catch((error) => { errorZone.innerHTML = "You received the following error:" + error });
 }
 function showCharacter() {
