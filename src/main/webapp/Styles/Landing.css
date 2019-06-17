@@ -1,5 +1,6 @@
 body{
     background-image: url("img/Landing.jpg");
+    color: white;
 }
 ul {
     position: sticky;
