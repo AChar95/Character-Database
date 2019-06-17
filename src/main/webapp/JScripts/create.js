@@ -2,7 +2,7 @@ let fName;
 let sName;
 let gType;
 let clasName;
-
+let id = JSON.parse(sessionStorage.getItem("Data"));
 
 const setFirstName = (nameText) => { fName = nameText.value; };
 const setSurname = (sNameText) => { sName = sNameText.value };
@@ -10,6 +10,15 @@ const setgameType = (gameText) => { gType = gameText.value };
 const setClassName = (classText) => { clasName = classText.value };
 
 
+
+
+fetchData("null", "GET", "/users/" + id["number"]).then((value) => {
+    let user = JSON.parse(value);
+    document.getElementById("welcome").innerHTML = "Welcome " + user["name"];
+    document.getElementById("user").innerHTML= user["username"];
+}).catch(() => {
+    document.getElementById("welcome").innerHTML = "Welcome dark lord of all"
+});
 
 
 function addCharacter() {

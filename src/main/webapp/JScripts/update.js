@@ -9,6 +9,14 @@ let userId = JSON.parse(sessionStorage.getItem("Data"));
 let buttonClick = document.getElementById("idDelete");
 let userEntry = JSON.parse(sessionStorage.getItem("userData"));
 let route = sessionStorage.getItem("userRoute");
+let id = JSON.parse(sessionStorage.getItem("Data"));
+
+fetchData("null", "GET", "/users/" + id["number"]).then((value) => {
+    let user = JSON.parse(value);
+    document.getElementById("user").innerHTML= user["username"];
+}).catch(() => {
+    console.log("Error")
+});
 
 if (route === "id") {
     userData = userEntry

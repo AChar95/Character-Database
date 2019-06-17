@@ -2,6 +2,14 @@ let fName = "";
 let sName = "";
 let id = 0;
 let userId = JSON.parse(sessionStorage.getItem("Data"))
+let id = JSON.parse(sessionStorage.getItem("Data"));
+
+fetchData("null", "GET", "/users/" + id["number"]).then((value) => {
+    let user = JSON.parse(value);
+    document.getElementById("user").innerHTML= user["username"];
+}).catch(() => {
+ console.log("Error")
+});
 
 document.getElementById("warningId").innerHTML = "";
 document.getElementById("warningName").innerHTML = "";
