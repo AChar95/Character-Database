@@ -44,8 +44,7 @@ function updateCharacter() {
     fetchData(updatedCharacter, "PUT", "/characters/" + id).then(() => {
             sessionStorage.removeItem("userData")
             window.location.assign("index.html");
-        });
-    }).catch((error) => { errorZone.innerHTML = "You received the following error:" + error });
+        }).catch((error) => { errorZone.innerHTML = "You received the following error:" + error });
 }
 function showCharacter() {
     window.location.assign("Show.html");
